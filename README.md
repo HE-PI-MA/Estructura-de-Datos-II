@@ -73,3 +73,10 @@ python -m unittest discover -v
 
 La explicación completa de las representaciones, métodos y comandos está en
 [`tarea_arbol_binario_metodos/README.md`](tarea_arbol_binario_metodos/README.md).
+
+## 4. ADT Árbol Binario de Búsqueda
+
+La carpeta `tarea_adt_arbol_binario_busqueda` contiene una implementación
+orientada a objetos de un Árbol Binario de Búsqueda, con inserción, búsqueda,
+altura, cantidad, amplitud y recorridos. La documentación está en
+[`tarea_adt_arbol_binario_busqueda/README.md`](tarea_adt_arbol_binario_busqueda/README.md).
