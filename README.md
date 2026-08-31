@@ -1,37 +1,75 @@
-ADT Árbol Binario - Estructura de Datos II
+# Estructura de Datos II: árboles binarios
 
-Implementación de un Tipo Abstracto de Datos de Árbol Binario en Python.
+Este repositorio reúne prácticas de árboles binarios implementadas en Python 3.
+El trabajo anterior se mantiene en sus archivos originales y las prácticas
+nuevas están separadas en su propia carpeta.
 
-Cada nodo almacena una matriz 3x3 que representa un estado del juego Tres en Raya.
+## 1. ADT Árbol Binario con Tres en Raya
 
-Clase Nodo
+La implementación original usa cada nodo para almacenar una matriz de `3 x 3`
+que representa un estado del juego Tres en Raya.
 
-Incluye:
+La clase `Nodo`, definida en `nodo.py`, incluye:
 
-Matriz 3x3.
-Hijo izquierdo.
-Hijo derecho.
-Getters y setters.
-Validación de la matriz.
-Método para mostrar el tablero.
-Clase Arbol
+- matriz de `3 x 3`;
+- hijo izquierdo e hijo derecho;
+- métodos de acceso y modificación;
+- validación de la matriz;
+- presentación del tablero en consola.
 
-Incluye:
+La clase `Arbol`, definida en `arbol.py`, incluye:
 
-Raíz del árbol.
-Getter y setter de la raíz.
-Inserción de raíz.
-Inserción de hijo izquierdo.
-Inserción de hijo derecho.
-Recorrido preorden.
-Recorrido inorden.
-Recorrido postorden.
-Búsqueda de tableros.
-Verificación de árbol vacío.
-Ejecución
+- acceso y modificación de la raíz;
+- inserción de la raíz y de hijos;
+- recorridos preorden, inorden y postorden;
+- búsqueda de tableros;
+- verificación de árbol vacío.
 
+Para ejecutar la práctica anterior:
+
+```bash
 python main.py
+```
 
-Lenguaje
+## 2. Árbol binario estático y dinámico
 
-Python 3
+La carpeta `tarea_arbol_binario_metodos` agrega la práctica **Árbol binario:
+Implementación de métodos** sin reemplazar las clases anteriores.
+
+Incluye:
+
+- una versión estática basada en una lista de capacidad configurable;
+- una versión dinámica basada en objetos `Nodo`;
+- inserción por nivel, de izquierda a derecha;
+- los métodos `InsertarNodo`, `EsVacio`, `EsHoja`, `BuscarX`, `InOrden`,
+  `PostOrden` y `PreOrden`;
+- ejemplos de uso y pruebas automatizadas.
+
+## 3. Árbol de expresiones
+
+La misma carpeta contiene una práctica adicional que valida una expresión
+infija, la convierte a posfija mediante una pila y construye su árbol de
+expresión. Admite operandos alfanuméricos simples, `+`, `-`, `*`, `/` y
+paréntesis.
+
+Ejemplo:
+
+```text
+Infija:  (A+B)*C
+Posfija: AB+C*
+```
+
+Para ejecutar todos los ejemplos:
+
+```bash
+python tarea_arbol_binario_metodos/main.py "(A+B)*C"
+```
+
+Para ejecutar todas las pruebas:
+
+```bash
+python -m unittest discover -v
+```
+
+La explicación completa de las representaciones, métodos y comandos está en
+[`tarea_arbol_binario_metodos/README.md`](tarea_arbol_binario_metodos/README.md).
