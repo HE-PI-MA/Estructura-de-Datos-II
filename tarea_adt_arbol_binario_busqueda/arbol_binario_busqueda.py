@@ -190,3 +190,124 @@ class ArbolBinarioBusqueda:
         self.__postorden(nodo.get_izquierdo(), recorrido)
         self.__postorden(nodo.get_derecho(), recorrido)
         recorrido.append(nodo.get_dato())
+
+    def EstaVacio(self):
+        """Indica si el árbol no contiene nodos."""
+        return self.__raiz is None
+
+
+    def Raiz(self):
+        """Devuelve el dato almacenado en la raíz."""
+        if self.__raiz is None:
+            return None
+
+        return self.__raiz.get_dato()
+
+
+    def Minimo(self):
+        """Devuelve el menor valor almacenado en el árbol."""
+        if self.__raiz is None:
+            return None
+
+        actual = self.__raiz
+
+        while actual.get_izquierdo() is not None:
+            actual = actual.get_izquierdo()
+
+        return actual.get_dato()
+
+
+    def Maximo(self):
+        """Devuelve el mayor valor almacenado en el árbol."""
+        if self.__raiz is None:
+            return None
+
+        actual = self.__raiz
+
+        while actual.get_derecho() is not None:
+            actual = actual.get_derecho()
+
+        return actual.get_dato()
+
+
+    def Eliminar(self, x):
+        """Elimina un valor del ABB."""
+
+        self.__raiz = self.__eliminar(self.__raiz, x)
+
+
+    def __eliminar(self, nodo, x):
+
+        if nodo is None:
+            return None
+
+
+        if x < nodo.get_dato():
+
+            nodo.set_izquierdo(
+                self.__eliminar(
+                    nodo.get_izquierdo(),
+                    x
+                )
+            )
+
+
+        elif x > nodo.get_dato():
+
+            nodo.set_derecho(
+                self.__eliminar(
+                    nodo.get_derecho(),
+                    x
+                )
+            )
+
+
+        else:
+
+            # Caso 1: nodo hoja
+            if (
+                nodo.get_izquierdo() is None
+                and nodo.get_derecho() is None
+            ):
+                return None
+
+
+            # Caso 2: solo hijo derecho
+            if nodo.get_izquierdo() is None:
+                return nodo.get_derecho()
+
+
+            # Caso 2: solo hijo izquierdo
+            if nodo.get_derecho() is None:
+                return nodo.get_izquierdo()
+
+
+            # Caso 3: dos hijos
+            sucesor = self.__minimo_nodo(
+                nodo.get_derecho()
+            )
+
+            nodo.set_dato(
+                sucesor.get_dato()
+            )
+
+            nodo.set_derecho(
+                self.__eliminar(
+                    nodo.get_derecho(),
+                    sucesor.get_dato()
+                )
+            )
+
+
+        return nodo
+
+
+    def __minimo_nodo(self, nodo):
+
+        actual = nodo
+
+        while actual.get_izquierdo() is not None:
+            actual = actual.get_izquierdo()
+
+        return actual
+
