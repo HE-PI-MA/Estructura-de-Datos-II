@@ -4,18 +4,19 @@ Prácticas en Python de la materia INF310, grupo SA, UAGRM, semestre 2-2026.
 Docente: Ing. Juan Carlos Peinado Pereira.
 
 Cada tarea tiene su carpeta dentro de `tareas/`, con fecha de cierre y un nombre
-descriptivo. Este índice presenta primero la tarea más reciente.
+descriptivo. Este índice presenta primero la tarea más antigua.
 Las fechas se consultaron en Presencial el 23 de septiembre de 2026.
 
 ## Tareas con código
 
 | Cierre | Tarea | Carpeta |
 | --- | --- | --- |
-| 23/09/2026, 23:17 | M-vías: métodos del ABB | [M-vías](tareas/tarea_2026_09_23_mvias_metodos/) |
-| 06/09/2026, 23:17 | Investigación e implementación AVL | [AVL](tareas/tarea_2026_09_06_avl/) |
-| 01/09/2026, 23:17 | Representación del ADT árbol binario de búsqueda | [ABB](tareas/tarea_2026_09_01_abb/) |
-| 01/09/2026, 07:00 | Métodos del árbol binario y árbol de expresiones | [Métodos y expresiones](tareas/tarea_2026_09_01_metodos_y_expresiones/) |
 | 20/08/2026, 07:00 | ADT árbol binario: Tres en Raya | [ADT árbol binario](tareas/tarea_2026_08_20_adt_arbol_binario/) |
+| 01/09/2026, 07:00 | Métodos del árbol binario y árbol de expresiones | [Métodos y expresiones](tareas/tarea_2026_09_01_metodos_y_expresiones/) |
+| 01/09/2026, 23:17 | Representación del ADT árbol binario de búsqueda | [ABB](tareas/tarea_2026_09_01_abb/) |
+| 06/09/2026, 23:17 | Investigación e implementación AVL | [AVL](tareas/tarea_2026_09_06_avl/) |
+| 23/09/2026, 23:17 | M-vías: métodos del ABB | [M-vías](tareas/tarea_2026_09_23_mvias_metodos/) |
+| 26/09/2026, 00:52 | Interfaz gráfica del árbol binario | [Interfaz Flask](tareas/tarea_2026_09_26_interfaz_arbol_binario/) |
 
 El [cronograma completo](CRONOGRAMA.md) conserva los nombres de las 22 tareas,
 sus fechas y enlaces a Presencial. Tener código en GitHub no registra una entrega
@@ -25,9 +26,22 @@ en la plataforma: cada actividad se presenta en su enlace correspondiente.
 
 Abrir la carpeta completa del repositorio en Visual Studio Code y usar su
 terminal. El código de consola utiliza solamente la biblioteca estándar de
-Python 3. No requiere instalar paquetes.
+Python 3. No requiere instalar paquetes. La interfaz web sí necesita Flask; sus pasos aparecen abajo.
 
-Ejecutar la tarea actual:
+### Interfaz web en PowerShell
+
+```powershell
+py -m venv .venv
+& .\.venv\Scripts\python.exe -m pip install -r .\tareas\tarea_2026_09_26_interfaz_arbol_binario\requirements.txt
+& .\.venv\Scripts\python.exe .\tareas\tarea_2026_09_26_interfaz_arbol_binario\app.py
+```
+
+Abrir http://127.0.0.1:5000 en el navegador. Para detener, `Ctrl+C`.
+[Explicación y demostración de la interfaz](tareas/tarea_2026_09_26_interfaz_arbol_binario/README.md).
+
+### Prácticas de consola
+
+Ejecutar M-vías:
 
 ```bash
 python tareas/tarea_2026_09_23_mvias_metodos/main.py
@@ -55,20 +69,24 @@ En Windows puede usarse `py` en lugar de `python`.
 Desde la raíz del repositorio:
 
 ```bash
+python -m pip install -r tareas/tarea_2026_09_26_interfaz_arbol_binario/requirements.txt
 python -m unittest discover -v
 ```
 
-Incluye las pruebas de ABB, métodos y expresiones, AVL y M-vías.
+Incluye 75 pruebas: ABB, métodos y expresiones, AVL, M-vías e interfaz web.
+Usar el intérprete del entorno virtual cuando se hayan instalado allí los paquetes.
 La práctica inicial de Tres en Raya conserva su demostración en `main.py`.
 
-## Preparar el ZIP de M-vías
+## Preparar los ZIP
 
 ```bash
-python crear_zip.py
+python crear_zip.py --tarea mvias
+python crear_zip.py --tarea interfaz
 ```
 
-Se genera `entregas/Tarea_Mvias_Metodos_2026-09-23.zip` con el código, las pruebas
-y la explicación. Este ZIP se puede extraer en una carpeta aparte y ejecutar
+Se generan `entregas/Tarea_Interfaz_Arbol_Binario_2026-09-26.zip` y
+`entregas/Tarea_Mvias_Metodos_2026-09-23.zip` con el código, las pruebas
+y la explicación. El ZIP de M-vías se puede extraer en una carpeta aparte y ejecutar
 con `python main.py`; las pruebas se ejecutan con `python -m unittest tests -v`.
 
 ## Organización anterior y nueva
@@ -82,9 +100,11 @@ con `python main.py`; las pruebas se ejecutan con `python -m unittest tests -v`.
 
 La fecha usa el formato año, mes y día. Los nombres no tienen espacios ni tildes
 para facilitar los comandos de Python. Las carpetas se ordenan por su nombre;
-el índice se mantiene de la más reciente a la más antigua.
+el índice se mantiene de la más antigua a la más reciente.
 
 ## Referencias
+
+- [Índice del Drive del ingeniero por temas](MATERIAL_DEL_INGENIERO.md).
 
 - [Curso en Presencial](https://presencial.uagrm.edu.bo/course/view.php?id=135285).
 - [Material del ingeniero](https://github.com/profjcp/INF310-EstructurasDatos2).
