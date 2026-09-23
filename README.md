@@ -1,82 +1,91 @@
-# Estructura de Datos II: árboles binarios
+# Estructura de Datos II
 
-Este repositorio reúne prácticas de árboles binarios implementadas en Python 3.
-El trabajo anterior se mantiene en sus archivos originales y las prácticas
-nuevas están separadas en su propia carpeta.
+Prácticas en Python de la materia INF310, grupo SA, UAGRM, semestre 2-2026.
+Docente: Ing. Juan Carlos Peinado Pereira.
 
-## 1. ADT Árbol Binario con Tres en Raya
+Cada tarea tiene su carpeta dentro de `tareas/`, con fecha de cierre y un nombre
+descriptivo. Este índice presenta primero la tarea más reciente.
+Las fechas se consultaron en Presencial el 23 de septiembre de 2026.
 
-La implementación original usa cada nodo para almacenar una matriz de `3 x 3`
-que representa un estado del juego Tres en Raya.
+## Tareas con código
 
-La clase `Nodo`, definida en `nodo.py`, incluye:
+| Cierre | Tarea | Carpeta |
+| --- | --- | --- |
+| 23/09/2026, 23:17 | M-vías: métodos del ABB | [M-vías](tareas/tarea_2026_09_23_mvias_metodos/) |
+| 06/09/2026, 23:17 | Investigación e implementación AVL | [AVL](tareas/tarea_2026_09_06_avl/) |
+| 01/09/2026, 23:17 | Representación del ADT árbol binario de búsqueda | [ABB](tareas/tarea_2026_09_01_abb/) |
+| 01/09/2026, 07:00 | Métodos del árbol binario y árbol de expresiones | [Métodos y expresiones](tareas/tarea_2026_09_01_metodos_y_expresiones/) |
+| 20/08/2026, 07:00 | ADT árbol binario: Tres en Raya | [ADT árbol binario](tareas/tarea_2026_08_20_adt_arbol_binario/) |
 
-- matriz de `3 x 3`;
-- hijo izquierdo e hijo derecho;
-- métodos de acceso y modificación;
-- validación de la matriz;
-- presentación del tablero en consola.
+El [cronograma completo](CRONOGRAMA.md) conserva los nombres de las 22 tareas,
+sus fechas y enlaces a Presencial. Tener código en GitHub no registra una entrega
+en la plataforma: cada actividad se presenta en su enlace correspondiente.
 
-La clase `Arbol`, definida en `arbol.py`, incluye:
+## Trabajar en Visual Studio Code
 
-- acceso y modificación de la raíz;
-- inserción de la raíz y de hijos;
-- recorridos preorden, inorden y postorden;
-- búsqueda de tableros;
-- verificación de árbol vacío.
+Abrir la carpeta completa del repositorio en Visual Studio Code y usar su
+terminal. El código de consola utiliza solamente la biblioteca estándar de
+Python 3. No requiere instalar paquetes.
 
-Para ejecutar la práctica anterior:
-
-```bash
-python main.py
-```
-
-## 2. Árbol binario estático y dinámico
-
-La carpeta `tarea_arbol_binario_metodos` agrega la práctica **Árbol binario:
-Implementación de métodos** sin reemplazar las clases anteriores.
-
-Incluye:
-
-- una versión estática basada en una lista de capacidad configurable;
-- una versión dinámica basada en objetos `Nodo`;
-- inserción por nivel, de izquierda a derecha;
-- los métodos `InsertarNodo`, `EsVacio`, `EsHoja`, `BuscarX`, `InOrden`,
-  `PostOrden` y `PreOrden`;
-- ejemplos de uso y pruebas automatizadas.
-
-## 3. Árbol de expresiones
-
-La misma carpeta contiene una práctica adicional que valida una expresión
-infija, la convierte a posfija mediante una pila y construye su árbol de
-expresión. Admite operandos alfanuméricos simples, `+`, `-`, `*`, `/` y
-paréntesis.
-
-Ejemplo:
-
-```text
-Infija:  (A+B)*C
-Posfija: AB+C*
-```
-
-Para ejecutar todos los ejemplos:
+Ejecutar la tarea actual:
 
 ```bash
-python tarea_arbol_binario_metodos/main.py "(A+B)*C"
+python tareas/tarea_2026_09_23_mvias_metodos/main.py
 ```
 
-Para ejecutar todas las pruebas:
+Abrir su menú para insertar, buscar y eliminar claves:
+
+```bash
+python tareas/tarea_2026_09_23_mvias_metodos/main.py --menu --orden 4
+```
+
+Ejecutar las prácticas anteriores:
+
+```bash
+python tareas/tarea_2026_09_06_avl/main.py
+python tareas/tarea_2026_09_01_abb/main.py
+python tareas/tarea_2026_09_01_metodos_y_expresiones/main.py "(A+B)*C"
+python tareas/tarea_2026_08_20_adt_arbol_binario/main.py
+```
+
+En Windows puede usarse `py` en lugar de `python`.
+
+## Comprobar el código
+
+Desde la raíz del repositorio:
 
 ```bash
 python -m unittest discover -v
 ```
 
-La explicación completa de las representaciones, métodos y comandos está en
-[`tarea_arbol_binario_metodos/README.md`](tarea_arbol_binario_metodos/README.md).
+Incluye las pruebas de ABB, métodos y expresiones, AVL y M-vías.
+La práctica inicial de Tres en Raya conserva su demostración en `main.py`.
 
-## 4. ADT Árbol Binario de Búsqueda
+## Preparar el ZIP de M-vías
 
-La carpeta `tarea_adt_arbol_binario_busqueda` contiene una implementación
-orientada a objetos de un Árbol Binario de Búsqueda, con inserción, búsqueda,
-altura, cantidad, amplitud y recorridos. La documentación está en
-[`tarea_adt_arbol_binario_busqueda/README.md`](tarea_adt_arbol_binario_busqueda/README.md).
+```bash
+python crear_zip.py
+```
+
+Se genera `entregas/Tarea_Mvias_Metodos_2026-09-23.zip` con el código, las pruebas
+y la explicación. Este ZIP se puede extraer en una carpeta aparte y ejecutar
+con `python main.py`; las pruebas se ejecutan con `python -m unittest tests -v`.
+
+## Organización anterior y nueva
+
+| Antes | Ahora |
+| --- | --- |
+| `arbol.py`, `nodo.py`, `main.py` en la raíz | `tareas/tarea_2026_08_20_adt_arbol_binario/` |
+| `tarea_arbol_binario_metodos/` | `tareas/tarea_2026_09_01_metodos_y_expresiones/` |
+| `tarea_adt_arbol_binario_busqueda/` | `tareas/tarea_2026_09_01_abb/` |
+| `tarea_arbol_avl/` | `tareas/tarea_2026_09_06_avl/` |
+
+La fecha usa el formato año, mes y día. Los nombres no tienen espacios ni tildes
+para facilitar los comandos de Python. Las carpetas se ordenan por su nombre;
+el índice se mantiene de la más reciente a la más antigua.
+
+## Referencias
+
+- [Curso en Presencial](https://presencial.uagrm.edu.bo/course/view.php?id=135285).
+- [Material del ingeniero](https://github.com/profjcp/INF310-EstructurasDatos2).
+- [Base original del ADT](https://github.com/profjcp/adtcode).
