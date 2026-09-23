@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tres en raya · Estructura de Datos II</title><link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}"></head>
+<body><main><header><span>ESTRUCTURA DE DATOS II · PROYECTO MVC</span><h1>Tres en raya</h1><p>Tú juegas con X. La computadora responde con O.</p></header>
+<div class="contenido"><section class="juego"><div class="opciones"><label for="algoritmo">Algoritmo de la computadora</label><select id="algoritmo"><option value="alfa_beta">Minimax con poda alfa-beta</option><option value="minimax">Minimax sin poda</option></select></div>
+<p id="estado" role="status" aria-live="polite"></p><div id="tablero" class="tablero" aria-label="Tablero de tres en raya">{% for i in range(9) %}<button class="casilla" data-i="{{ i }}" aria-label="Fila {{ i // 3 + 1 }}, columna {{ i % 3 + 1 }}"></button>{% endfor %}</div>
+<button id="reiniciar" class="principal">Nueva partida</button><p id="error" role="alert"></p></section>
+<aside><h2>¿Cómo decide?</h2><p>Minimax explora posibles respuestas y elige la jugada con mejor resultado. La poda alfa-beta evita explorar ramas que no cambiarían esa decisión.</p><p>Al probar y deshacer jugadas utiliza <strong>backtracking</strong>.</p><div class="dato"><span>Estados visitados en la última respuesta</span><strong id="estados">—</strong></div><div class="dato"><span>Cortes de búsqueda</span><strong id="cortes">—</strong></div>
+<h2>Compara los algoritmos</h2><p>Ejemplo fijo: X en la esquina superior izquierda; juega O. Ambos analizan el mismo tablero.</p><button id="comparar">Comparar búsqueda</button><div id="comparacion" aria-live="polite"></div><p class="nota">Cada estado es un tablero. Sus hijos son las jugadas posibles: este árbol no es binario. La búsqueda se genera al jugar.</p></aside></div></main>
+<script id="datos" type="application/json">{{ datos|tojson }}</script><script id="token" type="application/json">{{ token|tojson }}</script><script src="{{ url_for('static', filename='juego.js') }}"></script></body></html>
