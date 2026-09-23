@@ -11,6 +11,7 @@ Las fechas se consultaron en Presencial el 23 de septiembre de 2026.
 
 | Cierre | Tarea | Carpeta |
 | --- | --- | --- |
+| 16/08/2026, 23:17 | Árbol binario: getters, setters y PEP8 | [Estándar de codificación](tareas/tarea_2026_08_16_estandar_codificacion/) |
 | 20/08/2026, 07:00 | ADT árbol binario: Tres en Raya | [ADT árbol binario](tareas/tarea_2026_08_20_adt_arbol_binario/) |
 | 01/09/2026, 07:00 | Métodos del árbol binario y árbol de expresiones | [Métodos y expresiones](tareas/tarea_2026_09_01_metodos_y_expresiones/) |
 | 01/09/2026, 23:17 | Representación del ADT árbol binario de búsqueda | [ABB](tareas/tarea_2026_09_01_abb/) |
@@ -80,9 +81,13 @@ La práctica inicial de Tres en Raya conserva su demostración en `main.py`.
 ## Preparar los ZIP
 
 ```bash
+python crear_zip.py --tarea estandar
 python crear_zip.py --tarea mvias
 python crear_zip.py --tarea interfaz
 ```
+
+La entrega de estándares se genera en
+`entregas/Tarea_Estandar_Codificacion_2026-08-16.zip`.
 
 Se generan `entregas/Tarea_Interfaz_Arbol_Binario_2026-09-26.zip` y
 `entregas/Tarea_Mvias_Metodos_2026-09-23.zip` con el código, las pruebas

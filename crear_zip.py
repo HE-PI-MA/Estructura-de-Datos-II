@@ -4,6 +4,10 @@ from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
 TAREAS = {
+    'estandar': (
+        'tarea_2026_08_16_estandar_codificacion',
+        'Tarea_Estandar_Codificacion_2026-08-16.zip',
+    ),
     'mvias': ('tarea_2026_09_23_mvias_metodos', 'Tarea_Mvias_Metodos_2026-09-23.zip'),
     'interfaz': ('tarea_2026_09_26_interfaz_arbol_binario', 'Tarea_Interfaz_Arbol_Binario_2026-09-26.zip'),
 }

@@ -9,7 +9,7 @@ por el docente. Los títulos se conservan como aparecen allí.
 
 | Cierre 2026 | Nombre y enlace | Contenido o formato solicitado | Código |
 | --- | --- | --- | --- |
-| 16/08, 23:17 | [Tarea sobre estandar de condificación](https://presencial.uagrm.edu.bo/mod/assign/view.php?id=1507174) | Clase árbol binario con getters, setters y PEP8; ZIP o RAR | Pendiente de preparar como entrega independiente |
+| 16/08, 23:17 | [Tarea sobre estandar de condificación](https://presencial.uagrm.edu.bo/mod/assign/view.php?id=1507174) | Clase árbol binario con getters, setters y PEP8; ZIP o RAR | [Getters, setters y PEP8](tareas/tarea_2026_08_16_estandar_codificacion/) |
 | 18/08, 07:52 | [Retos :Ejercicios propuestos Sobre estandares y buenas practicas](https://presencial.uagrm.edu.bo/mod/assign/view.php?id=1507171) | Estilos de código Python; plantilla Colab indicada en la consigna | Pendiente |
 | 20/08, 07:00 | [Reto : Implementar el ADT Arboles Binarios](https://presencial.uagrm.edu.bo/mod/assign/view.php?id=1507176) | Nodo y árbol para matriz 3 × 3 de Tres en Raya; enlace GitHub | [ADT](tareas/tarea_2026_08_20_adt_arbol_binario/) |
 | 01/09, 07:00 | [Arbol binario: Implemetacion de metodos](https://presencial.uagrm.edu.bo/mod/assign/view.php?id=1507177) | Inserción, búsqueda, recorridos, árbol de expresiones; enlace Colab o GitHub | [Métodos y expresiones](tareas/tarea_2026_09_01_metodos_y_expresiones/) |
@@ -61,8 +61,8 @@ lecciones. Las lecciones no muestran fecha de vencimiento en el resumen.
 ## Orden de trabajo
 
 El índice y las carpetas siguen el orden de la tarea más antigua a la más
-reciente. M-vías y la interfaz web ya tienen código y ZIP generable.
-Después de presentar estas entregas, revisar las anteriores desde el 16/08
+reciente. Estándares, M-vías y la interfaz web ya tienen código y ZIP generable.
+Después de presentar estas entregas, revisar las anteriores desde el 18/08
 hacia el 20/09, comprobando cada consigna y su estado de envío en Presencial.
 
 Tener el código terminado no confirma un envío. Cada actividad requiere su
