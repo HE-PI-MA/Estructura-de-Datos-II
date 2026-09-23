@@ -793,3 +793,215 @@ dialog p {
     scroll-behavior:auto!important;
   }
 }
+
+/* Espacio de trabajo compacto: aprovechar ancho y alto de la ventana. */
+.barra {
+  height:48px;
+  padding:0 24px;
+}
+.marca img {
+  width:30px;
+  height:30px;
+}
+.contenedor {
+  max-width:1600px;
+  padding:16px 24px 10px;
+}
+.presentacion {
+  margin-bottom:12px;
+  gap:16px;
+}
+.etiqueta {
+  margin-bottom:3px;
+  font-size:9px;
+}
+h1 {
+  font-size:28px;
+  letter-spacing:-.8px;
+}
+.descripcion {
+  margin-top:4px;
+  font-size:12px;
+}
+.estadisticas {
+  margin-bottom:12px;
+  padding:10px 0;
+}
+.estadistica {
+  padding:0 18px;
+}
+.estadistica strong {
+  font-size:25px;
+}
+.zona-trabajo {
+  grid-template-columns:270px minmax(0,1fr);
+  gap:12px;
+}
+.controles {
+  padding:14px;
+}
+.titulo-panel {
+  margin-bottom:12px;
+}
+input {
+  height:36px;
+  padding:7px 10px;
+}
+.boton {
+  min-height:36px;
+  padding:8px 12px;
+}
+label,.subtitulo {
+  margin-bottom:6px;
+}
+.ayuda {
+  margin:5px 0 8px;
+}
+.separador {
+  margin:12px 0;
+}
+.dos-botones {
+  margin-top:8px;
+}
+#form-consultar>.enlace-boton {
+  margin-top:2px;
+}
+.consultas button {
+  padding:7px 3px;
+  gap:4px;
+}
+.nota {
+  margin-top:8px;
+}
+.columna-arbol {
+  min-width:0;
+  gap:10px;
+}
+.cabecera-lienzo {
+  padding:10px 14px;
+}
+.lienzo {
+  display:flex;
+}
+.lienzo svg {
+  margin:auto;
+  flex-shrink:0;
+}
+.vacio {
+  width:100%;
+}
+.leyenda {
+  padding:8px 14px;
+}
+.recorridos {
+  padding:10px 14px;
+}
+.recorridos .titulo-panel {
+  margin-bottom:7px;
+}
+.opciones-recorrido button {
+  padding:5px;
+}
+.secuencia {
+  min-height:32px;
+  margin-bottom:8px;
+}
+.secuencia span {
+  padding:4px 7px;
+}
+.resultado {
+  margin-top:10px;
+  padding:9px 14px;
+}
+footer {
+  padding:8px 0 0;
+}
+
+/* Los paneles conservan sus controles aunque haya muchos nodos o valores. */
+@media (min-width:900px) and (min-height:560px) {
+  .contenedor {
+    height:calc(100vh - 48px);
+    height:calc(100dvh - 48px);
+    display:grid;
+    grid-template-rows:auto auto minmax(0,1fr) auto auto;
+    gap:10px;
+    padding-top:12px;
+    padding-bottom:8px;
+  }
+  .presentacion,.estadisticas,.resultado {
+    margin:0;
+  }
+  .zona-trabajo {
+    min-height:0;
+    align-items:stretch;
+  }
+  .controles {
+    min-height:0;
+    overflow:auto;
+  }
+  .columna-arbol {
+    min-height:0;
+    grid-template-rows:minmax(0,1fr) auto;
+  }
+  .visualizador {
+    min-height:0;
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto;
+  }
+  .lienzo {
+    height:auto;
+    min-height:0;
+  }
+  .secuencia {
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    max-width:100%;
+  }
+  .secuencia span {
+    flex-shrink:0;
+  }
+  .resultado {
+    max-height:64px;
+    overflow:auto;
+  }
+  footer {
+    padding:0;
+  }
+}
+
+/* En pantallas estrechas se mantiene el desplazamiento natural de la página. */
+@media (max-width:899px) {
+  .contenedor {
+    padding:14px 16px;
+  }
+  .barra {
+    padding:0 16px;
+  }
+  .zona-trabajo {
+    grid-template-columns:230px minmax(0,1fr);
+  }
+  .acciones-superiores {
+    gap:4px;
+  }
+  .lienzo {
+    height:clamp(220px,38vh,340px);
+  }
+}
+@media (max-width:680px) {
+  .zona-trabajo {
+    grid-template-columns:minmax(0,1fr);
+  }
+  .presentacion {
+    gap:10px;
+  }
+  .estadistica {
+    padding:10px 14px;
+    min-height:60px;
+  }
+  .acciones-superiores {
+    flex-wrap:wrap;
+  }
+  .marca {
+    font-size:12px;
+  }
+}

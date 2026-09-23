@@ -50,7 +50,12 @@ function destacar(camino = [], actual = null) {
 
 function ajustarZoom(encajar = false) {
   const grafico = datos.grafico;
-  if (encajar) zoom = Math.min(1, $("lienzo").clientWidth / grafico.ancho);
+  if (encajar) {
+    // Ajustar a las dos dimensiones, incluyendo árboles altos e inclinados.
+    const lienzo = $("lienzo");
+    zoom = Math.min(1, lienzo.clientWidth / grafico.ancho,
+      lienzo.clientHeight / grafico.alto);
+  }
   const svg = $("diagrama");
   svg.style.width = `${grafico.ancho * zoom}px`;
   svg.style.height = `${grafico.alto * zoom}px`;
@@ -254,4 +259,7 @@ $("encajar").addEventListener("click", () => ajustarZoom(true));
 $("acercar").addEventListener("click", () => { zoom = Math.min(2, zoom * 1.25); ajustarZoom(); });
 $("alejar").addEventListener("click", () => { zoom = Math.max(0.1, zoom / 1.25); ajustarZoom(); });
 window.addEventListener("resize", () => ajustarZoom(true));
+// También recalcular cuando cambie el espacio ocupado por los otros paneles.
+const observadorLienzo = new ResizeObserver(() => ajustarZoom(true));
+observadorLienzo.observe($("lienzo"));
 actualizar(datos);
