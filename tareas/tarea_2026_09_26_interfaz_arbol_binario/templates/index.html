@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c32">
+  <title>Árbol binario · Estructura de Datos II</title>
+  <link rel="icon" href="{{ url_for('static', filename='arbol.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+  <script src="{{ url_for('static', filename='arbol.js') }}" defer></script>
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="{{ url_for('web.index') }}" aria-label="Inicio del visualizador">
+      <img src="{{ url_for('static', filename='arbol.svg') }}" alt="" width="36" height="36">
+      <span>Estructura de Datos <strong>II</strong></span>
+    </a>
+    <span class="materia">INF310 <span> / </span> Unidad 1</span>
+  </header>
+  <main class="contenedor">
+    <section class="presentacion">
+      <div>
+        <p class="etiqueta">LABORATORIO INTERACTIVO</p>
+        <h1>Explora tu árbol.</h1>
+        <p class="descripcion">Inserta, busca y recorre un árbol binario de búsqueda, paso a paso.</p>
+      </div>
+      <div class="acciones-superiores">
+        <button class="boton secundario" id="cargar-ejemplo">Cargar ejemplo <span aria-hidden="true">↗</span></button>
+        <button class="boton discreto" id="abrir-vaciar">Vaciar árbol</button>
+      </div>
+    </section>
+
+    <section class="estadisticas" aria-label="Información del árbol">
+      <div class="estadistica"><span>Nodos</span><strong id="cantidad">0</strong><small>Valores únicos</small></div>
+      <div class="estadistica"><span>Altura</span><strong id="altura">−1</strong><small>Medida en aristas</small></div>
+      <div class="estadistica"><span>Hojas</span><strong id="hojas">0</strong><small>Nodos sin hijos</small></div>
+      <div class="estadistica"><span>Amplitud</span><strong id="amplitud">0</strong><small>Máximo de nodos por nivel</small></div>
+    </section>
+
+    <div class="zona-trabajo">
+      <aside class="panel controles" aria-label="Operaciones del árbol">
+        <div class="titulo-panel"><h2>Construye y consulta</h2><span class="numero">01</span></div>
+        <form id="form-insertar">
+          <label for="valores">Valores para insertar</label>
+          <input id="valores" name="valores" type="text" placeholder="50, 30, 70, 20, 40" autocomplete="off" maxlength="700" required aria-describedby="ayuda-valores">
+          <p class="ayuda" id="ayuda-valores">Separa los números con comas o espacios.</p>
+          <button class="boton primario ancho" type="submit"><span aria-hidden="true">＋</span> Insertar valores</button>
+        </form>
+        <div class="separador"></div>
+        <form id="form-consultar">
+          <label for="valor">Valor a consultar</label>
+          <input id="valor" name="valor" type="number" min="-9999" max="9999" step="1" placeholder="Ej. 30" required>
+          <div class="dos-botones">
+            <button class="boton secundario" type="submit" name="accion" value="buscar">Buscar</button>
+            <button class="boton eliminar" type="submit" name="accion" value="eliminar">Eliminar</button>
+          </div>
+          <button class="enlace-boton" type="submit" name="accion" value="es_hoja">¿Este nodo es una hoja? <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="separador"></div>
+        <p class="subtitulo">Consultas rápidas</p>
+        <div class="consultas">
+          <button data-consulta="raiz"><span>Raíz</span><strong id="raiz">—</strong></button>
+          <button data-consulta="minimo"><span>Mínimo</span><strong id="minimo">—</strong></button>
+          <button data-consulta="maximo"><span>Máximo</span><strong id="maximo">—</strong></button>
+        </div>
+        <p class="nota">Enteros de −9999 a 9999.<br>Hasta 63 nodos, sin valores duplicados.</p>
+      </aside>
+
+      <div class="columna-arbol">
+        <section class="panel visualizador" aria-labelledby="titulo-arbol">
+          <div class="cabecera-lienzo">
+            <div><h2 id="titulo-arbol">Tu árbol</h2><span id="balance" class="estado">Árbol vacío</span></div>
+            <div class="zoom" aria-label="Tamaño del diagrama">
+              <button id="alejar" aria-label="Alejar">−</button>
+              <button id="encajar">Encajar</button>
+              <button id="acercar" aria-label="Acercar">＋</button>
+            </div>
+          </div>
+          <div class="lienzo" id="lienzo">
+            <div class="vacio" id="vacio">
+              <img src="{{ url_for('static', filename='arbol.svg') }}" alt="" width="58" height="58">
+              <h3>El primer valor será tu raíz</h3>
+              <p>Inserta algunos números o carga el ejemplo<br>para ver cómo se organiza el árbol.</p>
+            </div>
+            <svg id="diagrama" role="img" aria-labelledby="diagrama-titulo" hidden>
+              <title id="diagrama-titulo">Representación del árbol binario</title>
+              <g id="enlaces"></g><g id="nodos"></g>
+            </svg>
+          </div>
+          <div class="leyenda"><span><i class="punto normal"></i>Nodo</span><span><i class="punto visitado"></i>Visitado</span><span><i class="punto actual"></i>Seleccionado</span><small>I: izquierdo · D: derecho</small></div>
+        </section>
+        <section class="panel recorridos" aria-labelledby="titulo-recorridos">
+          <div class="titulo-panel"><h2 id="titulo-recorridos">Recorre el árbol</h2><span class="numero">02</span></div>
+          <div class="opciones-recorrido" aria-label="Elegir recorrido">
+            <button data-recorrido="inorden" aria-pressed="true">Inorden</button>
+            <button data-recorrido="preorden" aria-pressed="false">Preorden</button>
+            <button data-recorrido="postorden" aria-pressed="false">Postorden</button>
+            <button data-recorrido="niveles" aria-pressed="false">Por niveles</button>
+          </div>
+          <p class="ayuda" id="regla-recorrido">Izquierda → raíz → derecha. Los valores quedan ordenados.</p>
+          <div class="secuencia" id="secuencia" aria-label="Resultado del recorrido"></div>
+          <div class="reproductor">
+            <button class="boton primario pequeno" id="reproducir">Reproducir</button>
+            <button class="boton secundario pequeno" id="paso">Paso siguiente</button>
+            <button class="enlace-boton" id="reiniciar">Reiniciar</button>
+            <span id="paso-actual" aria-live="polite">0 / 0</span>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="resultado" id="resultado" role="status" aria-live="polite"><span class="resultado-icono" aria-hidden="true">✓</span><div><strong id="mensaje">Todo listo para comenzar.</strong><p id="camino">El árbol se conserva al recargar esta página durante la sesión.</p></div></div>
+    <footer><span>Árbol binario de búsqueda · INF310 / UAGRM</span><span>Menores a la izquierda. Mayores a la derecha.</span></footer>
+  </main>
+  <dialog id="confirmar">
+    <h2 id="titulo-confirmacion">¿Vaciar el árbol?</h2>
+    <p id="texto-confirmacion">Se quitarán todos los valores del árbol actual.</p>
+    <div class="dos-botones"><button class="boton secundario" id="cancelar">Volver</button><button class="boton primario" id="confirmar-accion">Vaciar árbol</button></div>
+  </dialog>
+  <script id="datos-iniciales" type="application/json">{{ inicial | tojson }}</script>
+  <noscript><p class="sin-script">Activa JavaScript para utilizar el visualizador.</p></noscript>
+</body>
+</html>
