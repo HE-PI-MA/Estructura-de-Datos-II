@@ -114,3 +114,9 @@ el índice se mantiene de la más antigua a la más reciente.
 - [Curso en Presencial](https://presencial.uagrm.edu.bo/course/view.php?id=135285).
 - [Material del ingeniero](https://github.com/profjcp/INF310-EstructurasDatos2).
 - [Base original del ADT](https://github.com/profjcp/adtcode).
+
+## Proyecto de juego con MVC
+
+[Tres en raya con Minimax y poda alfa-beta](proyectos/tres_en_raya_mvc/):
+Flask, HTML, CSS y JavaScript; jugador contra computadora, comparación de
+estados explorados y pruebas. Proyecto de avance, sin fecha de entrega confirmada.
